@@ -65,6 +65,63 @@ PPSX = ZIP. No python-pptx/LibreOffice needed:
 - Mapping: `ppt/slides/_rels/slideN.xml.rels` → `Target="../media/imageX.png"`
 - Output: Markdown with `## Slide N` sections, code blocks, Mermaid for diagrams
 
+## PDF Textbook Extraction
+
+For extracting textbook chapters from PDF to markdown (e.g., Ron Larson's Elementary Statistics):
+
+### Step 1: Extract raw text with PyMuPDF
+```bash
+cd <course-dir>
+uv venv && uv pip install pymupdf
+.venv/bin/python3 -c "
+import fitz
+doc = fitz.open('path/to/textbook.pdf')
+for i in range(START_PAGE, END_PAGE):
+    page = doc[i]
+    text = page.get_text()
+    book_page = i - OFFSET  # adjust for front matter
+    print(f'=== PDF PAGE {i+1} (BOOK PAGE {book_page}) ===')
+    print(text)
+" > extracted_content/chapterN/raw_text.txt
+```
+
+### Step 2: Claude fixes math formulas (hybrid approach)
+- PyMuPDF loses math formulas (rendered as vector graphics/special fonts in PDFs)
+- After raw extraction, Claude reads the PDF visually **2-3 pages at a time** to fix garbled math
+- Math formulas → LaTeX notation (`$x^2$`, `$$\sum_{i=1}^{n}$$`)
+- This avoids installing heavy ML tools (marker/nougat need 3-6 GB RAM + GPU)
+
+### Step 3: Spawn parallel sub-agents to write markdown
+- One agent per subchapter/file — if one gets blocked by content filtering, others still complete
+- Each agent reads `raw_text.txt` and writes its assigned markdown file
+- For math-heavy chapters: agent also reads relevant PDF pages visually to fix formulas
+- Use `model: "sonnet"`, `run_in_background: true` for all agents
+- Include a `README.md` with TOC table linking all files
+
+### Output format
+- One markdown file per section: `N.M-section-name.md`
+- Definitions as blockquotes (`> **Definition:** ...`)
+- Math formulas in LaTeX: inline `$...$`, display `$$...$$`
+- Examples with solutions, Try It Yourself exercises
+- Full exercise sets preserved
+- Tables for data, text descriptions for diagrams/figures
+- `README.md` with TOC table (File | Section | Topic | Pages)
+
+### Why this hybrid approach?
+- **PyMuPDF alone**: loses math formulas (garbled text)
+- **Claude PDF reader alone**: dumps page images (wastes context), content filtering blocks large outputs
+- **marker/nougat**: need 3-6 GB RAM + GPU, slow on CPU-only servers
+- **Hybrid (PyMuPDF + Claude visual fix)**: reliable, no extra dependencies, handles math correctly
+
+## Exercise Solving Rules
+
+When solving any exercise from textbooks (especially probability-statistics):
+- **ALWAYS verify results with Python** (numpy, scipy, pandas) after solving
+- Write a Python script that computes the answer independently
+- Compare manual/analytical solution against Python output
+- Flag any discrepancies before presenting the answer
+- This applies to ALL exercises: examples, Try It Yourself, section exercises, review, quiz
+
 ## YouTrack
 
 Project **FISHcmus** (key: `FIS`). Track all university tasks, assignments, and deadlines here.
