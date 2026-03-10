@@ -9,52 +9,48 @@ Academic workspace for Nguyen Huu Thien Nhan (nhannht), HCMUS Education Technolo
 
 ## Directory Structure
 
+All courses are individual GitHub repos (FISHcmus org) added as git submodules.
+
 ```
 hcmus/
-├── fishcmus_github/          # Quartz site → fishcmus.github.io (semester 1)
-├── semester2/                # Semester 2 (2025-2026) active workspaces
+├── profile/                  # FISHcmus/.github org profile (submodule)
+├── semester1/                # Semester 1 (2025-2026) — 6 course submodules
+│   ├── calculus-1/
+│   ├── general-chemistry-1/
+│   ├── intro-edtech/
+│   ├── intro-marxism-leninism/
+│   ├── linear-algebra/
+│   └── marxism-economic/
+├── semester2/                # Semester 2 (2025-2026) — 3 course submodules
 │   ├── intro-oop1/           # OOP1 — C++14, raylib Caro project
+│   ├── intro-edu-science/    # Nhập môn KHGD
 │   └── science-socialism/    # CNXHKH — has own CLAUDE.md
-├── semester%201/              # Legacy (URL-encoded space)
+├── hcmus-private/            # Private submodule (credentials, piracy workflows)
 ├── ielts/, toeic/            # English test prep (storage only)
 ├── general/                  # Misc documents (storage only)
 ├── thikhoinghiem2026/        # ARCHIVED — SV_STARTUP, did not advance
 ├── events/, personal/, tmp/  # Non-code directories
 ```
 
-## fishcmus_github
+Each course repo uses `extracted_content/` for markdown extracted from PPSX/PDF slides.
 
-Quartz v4 static site for semester 1 coursework. Obsidian-flavored Markdown, Git LFS for PDFs.
-
-```bash
-cd fishcmus_github && npm ci && npx quartz build   # or: npx quartz serve
-```
-
-- **Branch:** master (not main). Auto-deploys via GitHub Actions on push.
-- **Config:** `quartz.config.ts`, `quartz.layout.ts`, `.github/workflows/build_doc.yml`
-- **Landing page:** `profile/README.md` (symlinked as index.md)
-- **Course dirs** (`semester-1/`): `baigiang/`, `dethi/`, `thuchanh/`, PDFs, per-course `CLAUDE.md`
-- **Courses:** calculus-1 (MTH00021, has MATLAB+Python), linear-algebra, general-chemistry-1, intro-edtech, intro-marxism-leninism, marxism-economic
-
-## semester2/ (Active)
-
-Semester 2 workspaces live directly under `semester2/`, not inside fishcmus_github.
+## Course Details
 
 **intro-oop1/ — OOP1 (C++ Programming)**
 - C++14 strict (teacher requirement). Must load into Visual Studio before submission.
 - Homework: `MSSV_______.cpp`. Final project: Caro game (raylib). Docs: `DoAnCaro.pdf`
-- Slides: PPSX in `baigiang/`, extracted to `baigiang/markdown/`
+- Slides: PPSX in `baigiang/`, extracted to `extracted_content/`
 
 **science-socialism/** — Has own `CLAUDE.md` with chapter boundaries and grading structure.
 
 ## Moodle (courses.hcmus.edu.vn)
 
-Auth: Microsoft 365 OAuth. Bulk download: browsermcp → scrape IDs → decrypt Edge cookie → `curl -b`. See `~/nhannht-admin/docs/hacking/chromium-cookie-decryption.md`.
+Auth: Microsoft 365 OAuth. Bulk download workflow in `hcmus-private/CLAUDE.md`.
 
 | Course | ID | Workspace |
 |---|---|---|
 | OOP1 | 16047 | `semester2/intro-oop1/` |
-| Nhập môn KHGD | 16048 | — |
+| Nhập môn KHGD | 16048 | `semester2/intro-edu-science/` |
 | Xác suất thống kê (MTH00044) | 15966 | — |
 | Lịch sử Đảng CSVN | 16150 | — |
 | CNXH khoa học | 16128 | `semester2/science-socialism/` |
@@ -75,4 +71,4 @@ Project **FISHcmus** (key: `FIS`). Track all university tasks, assignments, and 
 
 - Always check subdirectory `CLAUDE.md` before working in a course area
 - MATLAB naming: `baitap_ngay<DD>_thang<MM>_<YYYY>.m`
-- Private/sensitive data never in version control
+- Private/sensitive data in `hcmus-private/` submodule (always private on GitHub)
