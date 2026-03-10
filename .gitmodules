@@ -31,3 +31,9 @@
 [submodule "profile"]
 	path = profile
 	url = https://github.com/FISHcmus/.github.git
+[submodule "semester2/probability-statistics"]
+	path = semester2/probability-statistics
+	url = https://github.com/FISHcmus/probability-statistics.git
+[submodule "semester2/history-vcp"]
+	path = semester2/history-vcp
+	url = https://github.com/FISHcmus/history-vcp.git

@@ -21,10 +21,12 @@ hcmus/
 │   ├── intro-marxism-leninism/
 │   ├── linear-algebra/
 │   └── marxism-economic/
-├── semester2/                # Semester 2 (2025-2026) — 3 course submodules
+├── semester2/                # Semester 2 (2025-2026) — 5 course submodules
 │   ├── intro-oop1/           # OOP1 — C++14, raylib Caro project
 │   ├── intro-edu-science/    # Nhập môn KHGD
-│   └── science-socialism/    # CNXHKH — has own CLAUDE.md
+│   ├── science-socialism/    # CNXHKH — has own CLAUDE.md
+│   ├── probability-statistics/ # Xác suất thống kê (MTH00044)
+│   └── history-vcp/          # Lịch sử Đảng CSVN
 ├── hcmus-private/            # Private submodule (credentials, piracy workflows)
 ├── ielts/, toeic/            # English test prep (storage only)
 ├── general/                  # Misc documents (storage only)
@@ -51,8 +53,8 @@ Auth: Microsoft 365 OAuth. Bulk download workflow in `hcmus-private/CLAUDE.md`.
 |---|---|---|
 | OOP1 | 16047 | `semester2/intro-oop1/` |
 | Nhập môn KHGD | 16048 | `semester2/intro-edu-science/` |
-| Xác suất thống kê (MTH00044) | 15966 | — |
-| Lịch sử Đảng CSVN | 16150 | — |
+| Xác suất thống kê (MTH00044) | 15966 | `semester2/probability-statistics/` |
+| Lịch sử Đảng CSVN | 16150 | `semester2/history-vcp/` |
 | CNXH khoa học | 16128 | `semester2/science-socialism/` |
 
 ## PPSX/PPTX Extraction
