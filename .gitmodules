@@ -1,39 +1,52 @@
 [submodule "hcmus-private"]
 	path = hcmus-private
 	url = https://github.com/nhannht/hcmus-private.git
+	branch = master
 [submodule "semester1/calculus-1"]
 	path = semester1/calculus-1
 	url = https://github.com/FISHcmus/calculus-1.git
+	branch = master
 [submodule "semester1/general-chemistry-1"]
 	path = semester1/general-chemistry-1
 	url = https://github.com/FISHcmus/general-chemistry-1.git
+	branch = master
 [submodule "semester1/intro-edtech"]
 	path = semester1/intro-edtech
 	url = https://github.com/FISHcmus/intro-edtech.git
+	branch = master
 [submodule "semester1/intro-marxism-leninism"]
 	path = semester1/intro-marxism-leninism
 	url = https://github.com/FISHcmus/intro-marxism-leninism.git
+	branch = master
 [submodule "semester1/linear-algebra"]
 	path = semester1/linear-algebra
 	url = https://github.com/FISHcmus/linear-algebra.git
+	branch = master
 [submodule "semester1/marxism-economic"]
 	path = semester1/marxism-economic
 	url = https://github.com/FISHcmus/marxism-economic.git
+	branch = master
 [submodule "semester2/intro-edu-science"]
 	path = semester2/intro-edu-science
 	url = https://github.com/FISHcmus/intro-edu-science.git
+	branch = master
 [submodule "semester2/intro-oop1"]
 	path = semester2/intro-oop1
 	url = https://github.com/FISHcmus/intro-oop1.git
+	branch = master
 [submodule "semester2/science-socialism"]
 	path = semester2/science-socialism
 	url = https://github.com/FISHcmus/science-socialism.git
+	branch = master
 [submodule "profile"]
 	path = profile
 	url = https://github.com/FISHcmus/.github.git
+	branch = master
 [submodule "semester2/probability-statistics"]
 	path = semester2/probability-statistics
 	url = https://github.com/FISHcmus/probability-statistics.git
+	branch = master
 [submodule "semester2/history-vcp"]
 	path = semester2/history-vcp
 	url = https://github.com/FISHcmus/history-vcp.git
+	branch = master
