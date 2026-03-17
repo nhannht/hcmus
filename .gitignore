@@ -1,0 +1,11 @@
+# Local config
+.claude/
+.serena/
+.mcp.json
+.directory
+.sync.ffs_db
+
+# Moved to hcmus-private
+general/
+events/
+thikhoinghiem2026/
