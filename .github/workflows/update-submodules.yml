@@ -11,12 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
           fetch-depth: 0
           token: ${{ secrets.SUBMODULE_PAT }}
 
+      - name: Configure git to use PAT for all GitHub repos
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.SUBMODULE_PAT }}@github.com/".insteadOf "https://github.com/"
+
       - name: Update all submodules to latest master
-        run: git submodule update --remote
+        run: |
+          git submodule update --init --recursive
+          git submodule update --remote
 
       - name: Check for changes
         id: check
