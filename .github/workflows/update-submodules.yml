@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.HCMUS_PAT }}
 
       - name: Clone and update all submodules using PAT
         env:
