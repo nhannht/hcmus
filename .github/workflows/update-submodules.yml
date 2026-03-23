@@ -15,7 +15,7 @@ jobs:
 
       - name: Clone and update all submodules using PAT
         env:
-          SUBMODULE_PAT: ${{ secrets.SUBMODULE_PAT }}
+          SUBMODULE_PAT: ${{ secrets.HCMUS_PAT }}
         run: |
           git config --global url."https://x-access-token:${SUBMODULE_PAT}@github.com/".insteadOf "https://github.com/"
           git submodule update --init --recursive
