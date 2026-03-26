@@ -2,7 +2,7 @@ name: Update submodule pointers
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # every 6 hours
+    - cron: '0 0 * * 1'  # every Monday midnight UTC
   workflow_dispatch:        # manual trigger
 
 jobs:
