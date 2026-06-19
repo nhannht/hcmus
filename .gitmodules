@@ -50,3 +50,6 @@
 	path = semester2/history-vcp
 	url = https://github.com/FISHcmus/history-vcp.git
 	branch = master
+[submodule "semester2/moodle-claude-bridge"]
+	path = semester2/moodle-claude-bridge
+	url = https://github.com/nhannht/moodle-claude-bridge.git
